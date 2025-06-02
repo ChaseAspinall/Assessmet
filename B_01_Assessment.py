@@ -78,7 +78,7 @@ def generate_level(level):
 
     return num1, operator, num2, answer
 
-print("\nWelcome to Quiz quest.\n")
+print("Welcome to Quiz quest.")
 
 want_instructions = yes_no("Do you want to see the instructions? ")
 if want_instructions == "yes":
@@ -102,7 +102,7 @@ score = 0
 while rounds_played < num_rounds:
     print(f"\nRound {rounds_played + 1} of {num_rounds}")
     num1, operator, num2, answer = generate_level(level)
-    print(f"What is {num1} {operator} {num2}?")
+    print(f"\nWhat is {num1} {operator} {num2}?")
 
     try:
         user_answer = int_check("Your answer: ")
@@ -115,17 +115,17 @@ while rounds_played < num_rounds:
         user_answer = "Invalid"
         result = "Invalid input"
 
-    history_entry = (f"Round {rounds_played + 1}: {num1} {operator} {num2} = {answer} | "
+    history_entry = (f"\nRound {rounds_played + 1}: {num1} {operator} {num2} = {answer} | "
                      f"Your answer: {user_answer} - {result}")
 
     game_history.append(history_entry)
 
     rounds_played += 1
 
-print("\nGame Over")
-print(f"You got {score} out of {num_rounds} correct.\n")
+print("Game Over")
+print(f"\nYou got {score} out of {num_rounds} correct.\n")
 percentage = (score / num_rounds) * 100
-print(f"You got {percentage:.1f}% correct.")
+print(f"\nYou got {percentage:.1f}% correct.")
 print()
 print("Game History:")
 for item in game_history:
