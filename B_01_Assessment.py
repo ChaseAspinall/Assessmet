@@ -105,7 +105,7 @@ while rounds_played < num_rounds:
     print(f"What is {num1} {operator} {num2}?")
 
     try:
-        user_answer = float(input("Your answer: "))
+        user_answer = int_check("Your answer: ")
         if user_answer == answer:
             result = "Correct"
             score += 1
