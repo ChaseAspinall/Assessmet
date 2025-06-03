@@ -78,12 +78,15 @@ def generate_level(level):
 
     return num1, operator, num2, answer
 
+# Welcome the user
 print("Welcome to Quiz quest.")
 
+# ask the user if they want to see the instructions
 want_instructions = yes_no("Do you want to see the instructions? ")
 if want_instructions == "yes":
     instructions()
 
+# ask the user if they want the default number of rounds / how many rounds
 default_rounds = yes_no("Do you want to use the default number of rounds? ")
 if default_rounds == "yes":
     num_rounds = 10
@@ -92,6 +95,7 @@ else:
 
 print(f"\nThere will be {num_rounds} rounds.")
 
+# ask user to choose level 1-5
 level = int_check("Choose a level (1-5): ", 1, 5)
 print(f"\nYou chose Level {level}.")
 
@@ -99,6 +103,7 @@ game_history = []
 rounds_played = 0
 score = 0
 
+# ask user the question
 while rounds_played < num_rounds:
     print(f"\nRound {rounds_played + 1} of {num_rounds}")
     num1, operator, num2, answer = generate_level(level)
@@ -114,7 +119,7 @@ while rounds_played < num_rounds:
     except ValueError:
         user_answer = "Invalid"
         result = "Invalid input"
-
+# print history and end of game
     history_entry = (f"\nRound {rounds_played + 1}: {num1} {operator} {num2} = {answer} | "
                      f"Your answer: {user_answer} - {result}")
 
