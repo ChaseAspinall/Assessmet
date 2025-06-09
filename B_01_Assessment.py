@@ -87,25 +87,25 @@ if want_instructions == "yes":
     instructions()
 
 # ask the user if they want the default number of rounds / how many rounds
-default_rounds = yes_no("Do you want to use the default number of rounds? ")
-if default_rounds == "yes":
-    num_rounds = 10
+default_questions = yes_no("Do you want to use the default number of rounds? ")
+if default_questions == "yes":
+    num_questions = 10
 else:
-    num_rounds = int_check("How many rounds would you like? ", 1)
+    num_questions = int_check("How many rounds would you like? ", 1)
 
-print(f"\nThere will be {num_rounds} rounds.")
+print(f"\nThere will be {num_questions} rounds.")
 
 # ask user to choose level 1-5
 level = int_check("Choose a level (1-5): ", 1, 5)
 print(f"\nYou chose Level {level}.")
 
-game_history = []
-rounds_played = 0
+quiz_history = []
+questions_played = 0
 score = 0
 
 # ask user the question
-while rounds_played < num_rounds:
-    print(f"\nRound {rounds_played + 1} of {num_rounds}")
+while questions_played < num_questions:
+    print(f"\nRound {questions_played + 1} of {num_questions}")
     num1, operator, num2, answer = generate_level(level)
     print(f"\nWhat is {num1} {operator} {num2}?")
 
@@ -120,20 +120,20 @@ while rounds_played < num_rounds:
         user_answer = "Invalid"
         result = "Invalid input"
 # print history and end of game
-    history_entry = (f"\nRound {rounds_played + 1}: {num1} {operator} {num2} = {answer} | "
+    history_entry = (f"\nRound {questions_played + 1}: {num1} {operator} {num2} = {answer} | "
                      f"Your answer: {user_answer} - {result}")
 
-    game_history.append(history_entry)
+    quiz_history.append(history_entry)
 
-    rounds_played += 1
+    questions_played += 1
 
 print("Game Over")
-print(f"\nYou got {score} out of {num_rounds} correct.\n")
-percentage = (score / num_rounds) * 100
+print(f"\nYou got {score} out of {num_questions} questions correct.\n")
+percentage = (score / num_questions) * 100
 print(f"\nYou got {percentage:.1f}% correct.")
 print()
 print("Game History:")
-for item in game_history:
+for item in quiz_history:
     print(item)
 
 
